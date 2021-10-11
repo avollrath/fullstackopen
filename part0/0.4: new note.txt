@@ -1,0 +1,17 @@
+0.4: new note
+
+note over browser:
+User writes new note and clicks submit
+end note
+note over browser:
+User input is send to the server as form submit
+end note
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+server-->browser: Status code 302 (URL Redirect)
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+note over browser:
+Browser reloads the Notes page
+end note
+browser->server: HTTP GET main.css stylesheet
+browser->server: HTTP GET main.js javascript
+browser->server: HTTP GET data.json data
