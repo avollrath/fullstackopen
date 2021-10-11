@@ -2,4 +2,4 @@
 
 browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
 browser-->server: contains the new note as JSON-data
-server-->browser: Status code 201 created
+server-->browser: Status code 201 (Created)
