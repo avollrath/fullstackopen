@@ -1,10 +1,12 @@
 0.4: new note
 
+0.4: new note
+
 note over browser:
 User writes new note and clicks submit
 end note
 note over browser:
-User input is send to the server as form submit
+User input is sent to the server as form submit
 end note
 browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
 server-->browser: Status code 302 (URL Redirect)
