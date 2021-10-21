@@ -3,7 +3,10 @@ import React, { useState } from 'react'
 const App = () => {
 
   const [ persons, setPersons ] = useState([
-    { name: 'Arto Hellas' }
+    {
+      name: 'Arto Hellas',
+      number: '23823 2323'
+    }
   ])
   const [ newName, setNewName ] = useState('')
 
@@ -14,20 +17,22 @@ const App = () => {
   }
 
   const handleNumberChange = (event) => {
-    setNewName(event.target.value)
+    setNewNumber(event.target.value)
   }
 
-  const addName = (e) => {
+  const addPerson = (e) => {
     e.preventDefault()
 
     persons.forEach(person => {
       if (person.name.toLowerCase() !== newName.toLowerCase()) {
 
         const personObject = {
-          name: newName
+          name: newName,
+          number: newNumber
         }
         setPersons(persons.concat(personObject))
         setNewName('')
+        setNewNumber('')
         }
       else alert(`${newName} is already added to phonebook`)
     })
@@ -39,17 +44,19 @@ const App = () => {
       <form>
         <div>
           name: <input onChange={handleNameChange} value={newName} />
-          name: <input onChange={handleNumberChange} value={newNumber} />
+          number: <input onChange={handleNumberChange} value={newNumber} />
         </div>
         <div>
-          <button type="submit" onClick={addName}>add</button>
+          <button type="submit" onClick={addPerson}>add</button>
         </div>
       </form>
       <div>debug: {newName}</div>
       <h2>Numbers</h2>
       <ul>
         {persons.map(person =>
-          <li key={person.name}>{person.name}</li>
+          <li key={person.name}>
+            {person.name} : {person.number}
+          </li>
         )}
       </ul>
     </div>
