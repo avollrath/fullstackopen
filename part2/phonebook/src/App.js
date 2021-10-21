@@ -4,11 +4,16 @@ const App = () => {
 
   const [ persons, setPersons ] = useState([
     { name: 'Arto Hellas' }
-  ]) 
+  ])
   const [ newName, setNewName ] = useState('')
 
+  const [ newNumber, setNewNumber ] = useState('')
 
   const handleNameChange = (event) => {
+    setNewName(event.target.value)
+  }
+
+  const handleNumberChange = (event) => {
     setNewName(event.target.value)
   }
 
@@ -34,6 +39,7 @@ const App = () => {
       <form>
         <div>
           name: <input onChange={handleNameChange} value={newName} />
+          name: <input onChange={handleNumberChange} value={newNumber} />
         </div>
         <div>
           <button type="submit" onClick={addName}>add</button>
