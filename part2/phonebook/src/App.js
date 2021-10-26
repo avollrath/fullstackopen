@@ -22,11 +22,15 @@ const App = () => {
     }
 
 
-  const handleFilterChange = (event) => {
-    setNewFilter(event.target.value)
+  const handleFilter = (filter) => {
+    console.log(filter)
     const filteredArr = persons.filter(person => {
-      return person.name.toLowerCase().includes(newFilter.toLowerCase())})
+      return person.name.toLowerCase().includes(filter.toLowerCase())})
     setPersons(filteredArr)
+  }
+
+  const handleFilterChange = (event) => {
+    setNewFilter(event.target.value, handleFilter(newFilter))
     }
 
   const addPerson = (e) => {
@@ -44,6 +48,18 @@ const App = () => {
         setNewName('')
         setNewNumber('')
       }
+  }
+
+  const Person = ({persons}) => {
+return (
+  <ul>
+        {persons.map(person =>
+          <li key={person.id}>
+            {person.name} : {person.number} : {person.id}
+          </li>
+        )}
+      </ul>
+)
   }
 
   return (
@@ -65,13 +81,7 @@ const App = () => {
       </form>
       <div>debug: {newName}</div>
       <h2>Numbers</h2>
-      <ul>
-        {persons.map(person =>
-          <li key={person.id}>
-            {person.name} : {person.number} : {person.id}
-          </li>
-        )}
-      </ul>
+      <Person persons={persons}/>
     </div>
   )
 }
