@@ -53,15 +53,15 @@ const App = () => {
   }
 
   const Person = ({persons}) => {
-return (
-  <ul>
-        {persons.map(person =>
-          <li key={person.id}>
-            {person.name} : {person.number} : {person.id}
-          </li>
-        )}
-      </ul>
-)
+    return  (
+              <ul>
+                {persons.map(person =>
+                  <li key={person.id}>
+                    {person.name} : {person.number} : {person.id}
+                  </li>
+                )}
+              </ul>
+            )
   }
 
   return (
