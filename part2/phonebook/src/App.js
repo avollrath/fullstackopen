@@ -56,13 +56,17 @@ const App = () => {
     );
   };
 
-  return (
-    <div>
-      <h2>Phonebook</h2>
-      <p>
+  const Filter = () => {
+    return (
+      <div>
         Filter shown with:
         <input onChange={handleFilterChange} value={newFilter} />
-      </p>
+      </div>
+    );
+  };
+
+  const Form = () => {
+    return (
       <form>
         <div>
           name: <input onChange={handleNameChange} value={newName} />
@@ -76,6 +80,14 @@ const App = () => {
           </button>
         </div>
       </form>
+    );
+  };
+
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <Filter />
+      <Form />
       <h2>Numbers</h2>
       <Person persons={persons} />
     </div>
