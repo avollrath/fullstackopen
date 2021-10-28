@@ -27,9 +27,7 @@ const App = () => {
   }
 
   const handleFilter = () => {
-    const filteredArr = persons.filter(person => {
-      return person.name.toLowerCase().includes(newFilter.toLowerCase())})
-    setPersons(filteredArr)
+
   }
 
 
@@ -53,6 +51,12 @@ const App = () => {
   }
 
   const Person = ({persons}) => {
+
+    const filteredArr = persons.filter(person => {
+      return person.name.toLowerCase().includes(newFilter.toLowerCase())})
+    if (newFilter != '')
+
+
     return  (
               <ul>
                 {persons.map(person =>
