@@ -10,9 +10,14 @@ const App = () => {
     return (
       <ul>
         {countries.map((country) => (
-          <li key={country.id}>
+          <div key={country.numericCode}>
             {country.name}
-          </li>
+            Capital {country.capital}
+            Population {country.population}
+            <h2>Languages</h2>
+            {country.languages[0].name}
+            <img src={country.flag} alt={country.name} height="600" />
+          </div>
         ))}
       </ul>
     );
@@ -21,9 +26,10 @@ const App = () => {
   useEffect(() => {
     console.log('effect')
     axios
-      .get('http://localhost:3001/persons')
+      .get('https://restcountries.com/v2/all')
       .then(response => {
         console.log('promise fulfilled')
+        console.log(response.data)
         setCountries(response.data)
       })
   }, [])
@@ -33,6 +39,7 @@ const App = () => {
   return (
     <div className="App">
      <h1>Countries</h1>
+     <Countries countries={countries} />
     </div>
   );
 }
